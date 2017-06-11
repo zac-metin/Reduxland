@@ -1,0 +1,57 @@
+html, body, #app, .container {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #005580;
+}
+
+.container{
+  display: inline-grid;
+  grid-template-columns: 1fr 2fr 700px 2fr;
+  grid-template-rows: 15% 15% 15% 15% 15% 25%;
+}
+
+.storebtn {
+  grid-column: 1;
+  grid-row: 1/6;
+}
+
+.store {
+  height: 80%;
+  margin: auto;
+}
+
+.frontend {
+  grid-column: 2;
+  grid-row: 1/6;
+}
+
+.middle {
+  grid-column: 3;
+  grid-row: 1/6;
+}
+
+.serversidepieces {
+  grid-column: 4;
+  grid-row: 1/6;
+}
+
+.reducer, .actions, .connected, .indexbtn, .appbtn, .server, .routes, .dbfunctions, .databasetable {
+ margin: 10px;
+ height: inherit;
+ width: inherit;
+}
+
+
+
+
+button {
+  background-color: #555555;
+  color: #FFFFFF;
+}
