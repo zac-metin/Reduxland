@@ -1,6 +1,3 @@
-import React from 'react'
-
-
 const Data = {
   store: {
     name: "Store",

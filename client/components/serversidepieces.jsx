@@ -9,7 +9,6 @@ class ServersidePieces extends React.Component{
 render () {
   return (
     <div className = "serversidepieces">
-
           <div className="server">
             <button type="button" className="btn-primary">Server</button>
           </div>

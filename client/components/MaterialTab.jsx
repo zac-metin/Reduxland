@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { connect } from 'react-redux'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import Paper from 'material-ui/Paper'
 
@@ -21,12 +22,12 @@ const style = {
   overflow: 'scroll'
 }
 
-export default class TabsExampleControlled extends React.Component {
-
+class TabsExampleControlled extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: 'a',
+      data: props.data
     };
   }
 
@@ -37,11 +38,11 @@ export default class TabsExampleControlled extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <Tabs
         value={this.state.value}
-        onChange={this.handleChange}
-      >
+        onChange={this.handleChange}>
         <Tab label="Description" value="a">
           <div>
             <Paper style={style} zDepth={4}>
@@ -54,7 +55,17 @@ export default class TabsExampleControlled extends React.Component {
           <div>
             <Paper style={style} zDepth={4}>
             <h2 style={styles.headline}>Code Example</h2>
-              Example Goes Here
+              {`var express = require('express')`}<br />
+          {`var router = express.Router()`}<br />
+          {`var bananasDb = require('../db/bananas')`}<br />
+          {`router.get('/', (req, res) => {`}<br />
+            {`let db = req.app.get('db')`}<br />
+            {`bananasDb.getBananas(db)`}<br />
+              {`.then(bananas => {`}<br />
+                {`res.json(bananas)`}<br />
+              {`})`}<br />
+          {`})`}<br />
+          {`module.exports = router`}
             </Paper>
           </div>
         </Tab>
@@ -62,7 +73,6 @@ export default class TabsExampleControlled extends React.Component {
           <div>
             <Paper style={style} zDepth={4}>
             <h2 style={styles.headline}>Testing</h2>
-            Testing Goes Here
             </Paper>
           </div>
         </Tab>
@@ -70,3 +80,11 @@ export default class TabsExampleControlled extends React.Component {
     );
   }
 }
+
+const mS2P = (state) => {
+  return {
+    data: state.data
+  }
+}
+
+export default connect(mS2P)(TabsExampleControlled)
